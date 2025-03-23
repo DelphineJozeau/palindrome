@@ -1,0 +1,56 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(51, 0, 48);
+    font-size: 50px;
+}
+
+#jeuGlobal {
+    text-align: center;
+    color: rgb(51, 0, 48);
+    font-size: x-large;
+}
+
+.jeu {
+    border: solid rgb(51, 0, 48) 4px;
+    border-radius: 10px;
+    padding: 5%;
+    margin: 5%;
+    text-align: center;
+}
+
+#input{
+    color: rgb(51, 0, 48);
+background-color: aqua;
+border: solid 1px color(51, 0, 48);
+border-radius: 50%;
+padding: 5px;
+margin: 3px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button {
+color: rgb(51, 0, 48);
+background-color: aqua;
+border: solid 1px color(51, 0, 48);
+border-radius: 30%;
+padding: 5px;
+margin: 3px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button:hover{
+    color: aqua;
+background-color: rgb(51, 0, 48);
+}
+
+#xpalindromes{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: 250px;
+}
