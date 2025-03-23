@@ -1,8 +1,9 @@
 //récupérer la date d'aujourd'hui
-let aujourdhui = "23/03/2025";
+let dateCourante = new Date();
+let aujourdhui = dateCourante.toLocaleDateString('fr-FR');
 
 const boutonNombre = document.getElementById("boutonNombre");
-const xpalindromes =  document.getElementById("xpalindromes");
+const xpalindromes = document.getElementById("xpalindromes");
 const selectNombre = document.getElementById("input");
 
 //déclarer les fonctions
@@ -36,10 +37,10 @@ function isValidDate(date) {
 
     //JOUR
     if (jour > 0 && jour <= 31) {
-   let jourMax = maxDayInMonth(mois);
+        let jourMax = maxDayInMonth(mois);
 
         if (jour > jourMax) {
-            
+
             console.log("jour invalide !")
             return false
 
@@ -100,47 +101,47 @@ function inverserChaine(str) {
     return inverse;
 };
 
-function getNextDate(date){
+function getNextDate(date) {
     let part = date.split("/");
     parseInt(part);
 
     let annee = part[2];
     let mois = part[1];
     let jour = part[0];
-    
+
 
     let jourMax = maxDayInMonth(mois, annee);
-    
 
-    if(jour < jourMax){
+
+    if (jour < jourMax) {
         jour++
     }
-    else if(jour == jourMax && mois < 12){
+    else if (jour == jourMax && mois < 12) {
         jour = 1;
         mois++;
     }
-    else if ( mois == 12){
+    else if (mois == 12) {
         jour = 1;
         mois = 1;
         annee++;
     }
 
-    let nextDate = `${jour}/${mois}/${annee}` 
+    let nextDate = `${jour}/${mois}/${annee}`
     return nextDate.toString()
 
 }
 
 function getNextPalindromes(x) {
-    let tableauPalindrome = [ ] ;
+    let tableauPalindrome = [];
     let nombreDePalindrome = 0;
 
-    while (nombreDePalindrome < x ) {
+    while (nombreDePalindrome < x) {
         let dateIncrementee = getNextDate(aujourdhui);
         aujourdhui = dateIncrementee;
         //On pourrait écrire aujourdhui = getNextDate(aujourdhui), 
         //On met la valeur du lendemain 
 
-        if(isPalindrome(dateIncrementee)){
+        if (isPalindrome(dateIncrementee)) {
             tableauPalindrome.push(dateIncrementee);
             nombreDePalindrome++;
         }
@@ -152,7 +153,6 @@ function getNextPalindromes(x) {
 function randomColor() {
     return '#' + ('00000' + (Math.random() * 16777216 << 0).toString(16)).substr(-6);
 }
-
 
 //Executer le code
 
@@ -166,18 +166,16 @@ console.log(isPalindrome("22/02/2022")); */
 
 boutonNombre.addEventListener("click", function () {
     let nombreChoisit = selectNombre.value;
-    
+
     getNextPalindromes(nombreChoisit).forEach(element => {
         const newPalindrome = document.createElement("div");
-        newPalindrome.classList.add("palindrome")
         newPalindrome.style.color = randomColor();
+        newPalindrome.style.margin = "5px";
         newPalindrome.style.fontFamily = "Impact";
         newPalindrome.innerText = element;
 
-        xpalindromes.appendChild(newPalindrome); 
-        xpalindromes.style.borderRadius = "50%"
-        xpalindromes.style.padding ="10%";
-        xpalindromes.style.backgroundColor ="aquamarine";
+        xpalindromes.appendChild(newPalindrome);
+        xpalindromes.style.backgroundColor = "rgb(198, 255, 252)";
     });
 });
 
